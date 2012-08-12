@@ -1,0 +1,24 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+       <service id="sonata.admin.article" class="Tworzenieweb\FitnessBundle\Admin\PageAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="CMS" label="Page"/>
+          <argument />
+          <argument>Tworzenieweb\FitnessBundle\Entity\Page</argument>
+          <argument>SonataAdminBundle:CRUD</argument>
+          <call method="setTranslationDomain">
+              <argument>TworzeniewebFitnessBundle</argument>
+          </call>
+      </service>
+       <service id="sonata.admin.news" class="Tworzenieweb\FitnessBundle\Admin\NewsAdmin">
+          <tag name="sonata.admin" manager_type="orm" group="CMS" label="News"/>
+          <argument />
+          <argument>Tworzenieweb\FitnessBundle\Entity\News</argument>
+          <argument>SonataAdminBundle:CRUD</argument>
+          <call method="setTranslationDomain">
+              <argument>TworzeniewebFitnessBundle</argument>
+          </call>
+      </service>
+   </services>
+</container>

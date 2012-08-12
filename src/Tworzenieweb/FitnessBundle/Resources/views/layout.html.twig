@@ -1,0 +1,222 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 {{bp_html_classes|default('')}}" lang="{{bp_language|default('en')}}"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 {{bp_html_classes|default('')}}" lang="{{bp_language|default('en')}}"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 {{bp_html_classes|default('')}}" lang="{{bp_language|default('en')}}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="pl"> <!--<![endif]-->
+    <head>
+        {% block head_meta %}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <meta name="description" content="{% block head_meta_description %}{% endblock %}">
+            <meta name="keywords" content="{% block head_meta_keywords %}{% endblock %}">
+            <meta name="viewport" content="width=device-width">
+        {% endblock head_meta %}
+
+        <title>{% block head_title %}Fitness Zielony-Romanów{% endblock %}</title>
+
+        {% block head_css %}
+
+            {% stylesheets 
+                'bundles/tworzeniewebfitness/css/foundation.css'
+                'bundles/tworzeniewebfitness/css/boilerplate.css'
+                'bundles/tworzeniewebfitness/css/app.css' 
+                output='css/total.css' filter='cssrewrite'
+                %}
+                <link rel="stylesheet"  href="{{ asset_url }}" media="screen" >
+            {% endstylesheets %}
+        
+        {% endblock %}
+
+        {% block head_js %}
+            
+        {% endblock %}
+    </head>
+    <body>
+    {% block body%}
+
+        <!--[if lt IE 7]>
+        <p class="chromeframe">Twoj przeglądarka jest za stara 
+        <a href="http://www.google.com/chromeframe/?redirect=true">zainstaluj ten dodatek w celu poprawy sytuacji.</p>
+        <![endif]-->
+
+        {% block body_container %}
+
+        <div id="container" class="row">
+
+            <header class="row">
+                
+                {% render 'TworzeniewebUserBundle:Default:loginForm' %}
+
+                <div class="row top">
+                    <div class="five columns">
+                        <h1>FITNESS KLUB</h1>
+                    </div>
+                    <div class="seven columns">
+                        <h2 class="top-text">FITNESS KLUB<br /> ZIELONY ROMANÓW</h2>
+                    </div>
+                </div>
+                <nav class="twelve columns">
+                    {% include('TworzeniewebFitnessBundle::_menu.html.twig') %}
+                </nav>
+
+                <div class="row info">
+
+                    <div class="four columns">
+
+                        {% block header_text %}
+
+                        <h2>Nowości i aktualności</h2>
+                        
+                        <div class="news">
+                        </div>
+
+                        {% endblock header_text %}
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <div class="row">
+
+                <div class="four columns" id="col1">
+                    <div class="c1"></div>
+                    <div class="col-padd">
+                        <h2><strong>TRENING</strong></h2>
+                        <h2>Ciesz się życiem!</h2>
+                        <h4>Pobudź organizm do pracy</h4>
+                        <p>zrób coś dla siebie i swojego zdrowia</p>
+                    </div>
+                </div>
+
+                <div class="four columns" id="col2">
+                    <div class="c2"></div>
+                    <div class="col-padd">
+                        <h2><strong>ZABAWA</strong></h2>
+                        <h2>Wybierz co lubisz!</h2>
+                        <h4>Wybierz zajęcia dla siebie</h4>
+                        <p>wolisz mocny wycisk czy relaksujące ćwiczenia?</p>
+                    </div>
+                </div>
+
+                <div class="four columns" id="col3">
+                    <div class="col-padd">
+                        <h2><strong>LEPSZA KONDYCJA</strong></h2>
+                        <h2>Już po kilku zajęciach!</h2>
+                        <h4>Popraw wydolność organizmu</h4>
+                        <p>rezultat już po kilku treningach!</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="row border-top">
+                
+                {% block content %}
+
+                {% for key, message in app.session.getFlashes() %}
+                    <div class="{{ key }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
+                    </div>
+                 {% endfor %}
+
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+
+                {% endblock content %}
+                
+            </div>
+            
+
+            <div class="row section3">
+                <div class="four columns">
+
+                    <div class="eleven columns offset-by-one" id="contact-box">
+
+                        <h3>Kontakt</h3>
+
+                        <p><span>FITNESS KLUB ZIELONY - ROMANÓW</span></p>
+
+                        <p>Łódź, ul. Romanowska 55F lokal 4-5<br />
+                            pasaż usługowy</p>
+
+                        <div class="contact-no">518-729-946</div>
+
+                    </div>
+
+                </div>
+
+                <div class="four columns shadow">
+
+                    <div class="eleven columns offset-by-one">
+
+                        <h3>Reklamy</h3>
+
+                        <h4>Szybsze spalanie kalorii</h4>
+                        <p>Suplementy diety pomagające w szybszym spalaniu tkanki tłuszczowej</p>
+                        <p>Masaże antycellulitowe, enzos eskulap</p>
+
+
+                    </div>
+
+                </div>
+
+                <div class="four columns shadow">
+
+                    <div class="eleven columns offset-by-one">
+
+                        <h3>Opinie klientów</h3>
+
+                        <h4>Gorąco Polecam !!!</h4>
+                        <p>Miła atmosfera, z pewnością pojawie się na następnych zajęciach</p>
+                        <p><span class="alert label">Kasia</span></p>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="footer">
+            
+            {% block footer %}
+            <div class="row">
+                <div class="columns five">
+                    <p><a href="#">Regulamin</a> | <a href="privacy.html">Zasady korzystania z serwisu</a> </p>
+                </div>
+                <div class="columns seven">
+                    <p class="right">&copy; {{"now"|date('Y')}} Fitness Zielony-Romanów. Wszelkie prawa zastrzeżone</p>
+                </div>
+            </div>
+            {% endblock footer %}
+        </div>
+
+        {% endblock body_container %}
+
+        {% block body_js %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+            {% javascripts
+                'bundles/tworzeniewebfitness/js/jquery.min.js'
+                'bundles/tworzeniewebfitness/js/all.js'
+                'bundles/tworzeniewebfitness/js/app.js'
+                'bundles/tworzeniewebfitness/js/jquery.placeholder.min.js'
+                'bundles/tworzeniewebfitness/js/jquery.customforms.js'
+                'bundles/tworzeniewebfitness/js/jquery.reveal.js'
+                'bundles/tworzeniewebfitness/js/jquery.tooltips.js'
+                'bundles/tworzeniewebfitness/js/jquery.orbit-1.4.0.js'
+                'bundles/tworzeniewebfitness/js/modernizr.foundation.js'
+                output='js/total.js'
+                %}
+                <script src="{{asset_url}}"></script>
+            {% endjavascripts %}
+     
+        {% endblock body_js %}
+    {% endblock body %}
+    </body>
+</html>

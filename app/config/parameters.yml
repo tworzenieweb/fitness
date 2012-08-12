@@ -1,0 +1,14 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     localhost
+    database_port:     ~
+    database_name:     fitness
+    database_user:     root
+    database_password: lukasz.123
+
+    mailer_transport:  gmail
+    mailer_user:       tworzenieweb
+    mailer_password:   Jemvojpoacho
+
+    locale:            pl
+    secret:            ThisTokenIsNotSoSecretChangeIt

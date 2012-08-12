@@ -1,0 +1,109 @@
+{% extends "TworzeniewebFitnessBundle::layout.html.twig" %}
+{% block content %}
+<div class="columns six panel">
+
+    {% for key, message in app.session.getFlashes() %}
+        <div class="{{ key }}">
+            {{ message }}
+            <a href="#" class="close">&times;</a>
+        </div>
+    {% endfor %}
+
+    <h4>Wyślij nam wiadomość<h4>
+
+    <form action="{{ path('contact') }}" method="post" {{ form_enctype(form) }}>
+
+    {{ form_errors(form) }}
+    <div class="row">
+        <div class="six columns">
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="six columns">
+            {{ form_label(form.email) }}
+            {{ form_errors(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="twelve columns">
+        {{ form_label(form.topic) }}
+        {{ form_errors(form.topic) }}
+        {{ form_widget(form.topic) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="twelve columns">
+        {{ form_label(form.message) }}
+        {{ form_errors(form.message) }}
+        {{ form_widget(form.message) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            <label> </label>
+            <button class="button nice radius small right" type="submit">Wyślij</button>
+        </div>
+    </div>
+    {{ form_rest(form) }}
+</form>  
+
+
+</div>
+
+<div class="six columns">
+<div id="map_canvas"></div>
+</div>
+
+{% endblock content %}
+
+{% block body_js %}
+{{ parent() }}
+
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script>
+(function($)
+{
+    var myLatlng = new google.maps.LatLng(51.806127,19.324517);
+    var mapOptions = {
+    zoom: 16,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    panControl: false,
+  zoomControl: true,
+  mapTypeControl: false,
+  scaleControl: false,
+  streetViewControl: false,
+  overviewMapControl: false
+    }
+    var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'FITNESS KLUB ZIELONY - ROMANÓW'
+    });
+
+
+    var contentString = '<div id="content">'+
+        '<div id="bodyContent">'+
+        '<h5>FITNESS KLUB ZIELONY - ROMANÓW</h5>' +
+'<p>Łódź, ul. Romanowska 55F lokal 4-5<br>'+
+    'pasaż usługowy</p>'+
+'<div class="contact">518-729-946</div>'+
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        position: map.getCenter()
+    });
+
+    infowindow.open(map);
+
+})(jQuery);
+</script>
+{% endblock body_js %}

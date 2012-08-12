@@ -1,0 +1,61 @@
+{% set extended = is_granted("IS_AUTHENTICATED_REMEMBERED")  %}
+
+<div id="login-box" class="login {% if extended %}extended{% endif %}">
+    <div class="login-inner">
+    {% if extended %}
+        <a class="login-box" href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
+        <div class="row">
+                <div class="ten columns offset-by-one">
+
+                <p>Zalogowano jako: <span class="secondary radius label">{{app.user.username}}</span></p>
+
+                </div>
+        </div>
+
+    {% else %}
+        <span class="login-box">Strefa klienta</span>
+        {% if error is defined and error %}
+            <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+        {% endif %}
+        
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            
+            <div class="row">
+                <div class="ten columns offset-by-one">
+                <h5>Panel Klienta</h5>
+                <label for="username">Nazwa użytkownika</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="ten columns offset-by-one">
+                    <label for="password">Hasło</label>
+                    <input type="password" id="password" name="_password" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="one columns offset-by-one">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                </div>
+                <div class="nine columns">
+                    <label for="remember_me">Pamiętaj mnie</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="ten columns offset-by-one">
+                    <div class="right">
+                        <button class="button tiny secondary" type="submit" id="_submit">Zaloguj</button>
+                    </div>
+                </div>
+            </div>
+
+
+            
+        </form>
+    {% endif %}
+    </div>
+</div>

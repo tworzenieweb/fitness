@@ -1,0 +1,9 @@
+#parameters:
+
+services:
+    tworzenieweb_fitness.menu.voter.request:
+      class: Tworzenieweb\TworzeniewebFitnessBundle\Menu\RequestVoter
+      arguments: 
+        - '@service_container'
+      tags:
+        - { name: knp_menu.voter }

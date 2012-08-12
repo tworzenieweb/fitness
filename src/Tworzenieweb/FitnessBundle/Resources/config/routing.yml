@@ -1,0 +1,7 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: TworzeniewebFitnessBundle:Default:index }
+
+pages:
+  pattern: /page/{page}
+  defaults: { _controller: TworzeniewebFitnessBundle:Default:static }

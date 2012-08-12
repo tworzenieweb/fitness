@@ -1,0 +1,56 @@
+{% extends "TworzeniewebFitnessBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+        
+        <div class="five columns">
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            
+            <div class="row">
+
+                {% if error %}
+                <div class="alert-box alert">{{ error }}</div>
+                {% endif %}
+
+                <h5>Panel Klienta</h5>
+                <label for="username">Nazwa użytkownika</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+            </div>
+            
+            <div class="row">
+                    <label for="password">Hasło</label>
+                    <input type="password" id="password" name="_password" />
+            </div>
+            
+            <div class="row">
+                <div class="one columns ">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                </div>
+                <div class="ten columns">
+                    <label for="remember_me">Pamiętaj mnie</label>
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="right">
+                        <button class="button tiny" type="submit" id="_submit">Zaloguj</button>
+                    </div>
+            </div>
+
+        </form>
+        </div>
+
+        <div class="six columns">
+
+        <h5>Informacje</h5>
+
+        <p>Jeśli jesteś klientem fitnessu możesz utworzyć swoje konto i sprawdzić stan swojego karnetu</p>
+        <p>Rejestrując się na stronie będziesz także na bierząco z promocjami i informacjami, 
+        ponieważ będziesz powiadamiany mailowo o aktualnościach</p>
+
+        <a href="{{ path("fos_user_registration_register") }}" class="small success button">Utwórz konto</a>
+
+        </div>
+
+{% endblock fos_user_content %}
