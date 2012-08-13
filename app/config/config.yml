@@ -66,6 +66,14 @@ sonata_admin:
   templates:
     layout: SonataAdminBundle::admin_layout.html.twig
 
+sonata_doctrine_orm_admin:
+    templates:
+        types:
+            list:
+                text:       SonataAdminBundle:CRUD:base_list_field.html.twig
+                string:     SonataAdminBundle:CRUD:base_list_field.html.twig
+
+
 sonata_block:
     default_contexts: [cms]
     blocks:
@@ -120,7 +128,8 @@ stfalcon_tinymce:
             force_p_newlines : false,
             force_br_newlines : true,
             convert_newlines_to_brs : false,
-            remove_linebreaks : false
+            remove_linebreaks : false,
+            cleanup : false
         medium:
             mode: "textareas"
             theme: "advanced"
