@@ -123,7 +123,7 @@ stfalcon_tinymce:
             convert_newlines_to_brs : false,
             remove_linebreaks : false,
             cleanup : false,
-            content_css : "/css/total.css"
+            content_css : "/css/editor.css"
         medium:
             mode: "textareas"
             theme: "advanced"
