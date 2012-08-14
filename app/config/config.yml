@@ -66,12 +66,6 @@ sonata_admin:
   templates:
     layout: SonataAdminBundle::admin_layout.html.twig
 
-sonata_doctrine_orm_admin:
-    templates:
-        types:
-            list:
-                html:       SonataAdminBundle:CRUD:html_list_field.html.twig
-
 
 sonata_block:
     default_contexts: [cms]
