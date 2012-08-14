@@ -122,8 +122,8 @@ stfalcon_tinymce:
             force_br_newlines : true,
             convert_newlines_to_brs : false,
             remove_linebreaks : false,
-            cleanup : false
-            content_css : "/css/total.css",
+            cleanup : false,
+            content_css : "/css/total.css"
         medium:
             mode: "textareas"
             theme: "advanced"
