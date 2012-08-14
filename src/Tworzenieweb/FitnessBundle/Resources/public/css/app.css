@@ -255,7 +255,7 @@ div.extended {
 
 
 .row .info {
-    margin-top: 130px;
+    margin-top: 50px;
 }
 
 .row .info h2 {
@@ -311,4 +311,10 @@ div.extended {
     height: 348px;
     width: 100%;
 
+}
+
+#logo {
+    width: 400px;
+    height: 130px;
+    background: url(../images/layout/logo.png) no-repeat;
 }

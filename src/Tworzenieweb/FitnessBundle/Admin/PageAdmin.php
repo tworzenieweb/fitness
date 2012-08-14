@@ -36,7 +36,7 @@ class PageAdmin extends Admin
         $formMapper
                 ->with('General')
                 ->add('title')
-                ->add('body', 'html', array(
+                ->add('body', null, array(
                     'attr' => array(
                         'class' => 'tinymce',
                         'data-theme' => 'advanced' // simple, advanced, bbcode
