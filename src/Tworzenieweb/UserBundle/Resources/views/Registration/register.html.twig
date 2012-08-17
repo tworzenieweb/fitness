@@ -1,0 +1,10 @@
+{% extends "TworzeniewebFitnessBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+<div class="five columns">
+    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+</div>
+<div class="seven columns">
+    <p>Po pomyślnej rejestracji otrzymasz maila potwierdzającego rejestrację konta w aplikacji</p>
+</div>
+{% endblock fos_user_content %}

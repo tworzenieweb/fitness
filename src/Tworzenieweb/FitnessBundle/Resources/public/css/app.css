@@ -1,6 +1,7 @@
 body{
     background: url('../images/layout/body-bg.png') top left repeat-x;
     color:#7D7D7D;
+    font-size: 11px;
 }
 
 .row .border-top {
@@ -67,17 +68,19 @@ body{
 
 .contact {
     color: #666;
-    font-size: 22px;
+    font-size: 26px;
     background: url(../images/layout/contact-icon.png) top left no-repeat;
     padding-left: 40px;
+    height: 35px;
 }
 
 .contact-no {
     color: #666;
-    font-size: 25px;
+    font-size: 26px;
     margin-top: 42px;
     background: url(../images/layout/contact-icon.png) top left no-repeat;
     padding-left: 40px;
+    height: 35px;
 }
 
 .shadow {
@@ -165,7 +168,7 @@ nav li {
 .login {
     position: absolute;
     right:0;
-    top:-235px;
+    top:-218px;
     color: #fff;
     font-size: 11px;
     z-index: 10;
@@ -197,7 +200,7 @@ div.extended {
     font-size: 11px;
     position: absolute;
     right:10px;
-    bottom: -22px;
+    bottom: -19px;
     z-index:9999;
     cursor: pointer;
 }
@@ -323,4 +326,16 @@ div.extended {
     width: 400px;
     height: 130px;
     background: url(../images/layout/logo.png) no-repeat;
+}
+
+#content h5 {
+    margin:0;
+}
+
+#content p {
+    font-size: 12px;
+}
+
+.asterix {
+    color: red;
 }

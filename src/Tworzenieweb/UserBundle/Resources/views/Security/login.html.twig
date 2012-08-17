@@ -8,11 +8,11 @@
             
             <div class="row">
 
-                {% if error %}
-                <div class="alert-box alert">{{ error }}</div>
-                {% endif %}
 
                 <h5>Panel Klienta</h5>
+                {% if error %}
+                <div class="alert-box alert">{{ error|trans({}, 'FOSUserBundle') }}</div>
+                {% endif %}
                 <label for="username">Nazwa użytkownika</label>
                 <input type="text" id="username" name="_username" value="{{ last_username }}" />
 

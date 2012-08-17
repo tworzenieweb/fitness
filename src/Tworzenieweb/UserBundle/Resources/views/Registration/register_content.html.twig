@@ -1,0 +1,8 @@
+<h5>Zarejestruj użytkownika</h5>
+{% form_theme form 'TworzeniewebUserBundle:Form:fields.html.twig' 'TworzeniewebUserBundle:Form:errors.html.twig'  %}
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {{ form_widget(form) }}
+    <div>
+        <input class="button tiny" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+    </div>
+</form>

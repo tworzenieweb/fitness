@@ -1,0 +1,28 @@
+{% block form_label %}
+{% spaceless %}
+    {% if not compound %}
+        {% set label_attr = label_attr|merge({'for': id}) %}
+    {% endif %}
+    {% if required %}
+        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+    {% endif %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}
+    {% if required %}
+        <span class="asterix required" title="To pole jest wymagane">*</span>
+    {% endif %}
+    </label>
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block field_row %}
+{% spaceless %}
+    <div class="twelve columns control-group{% if errors|length > 0 %} error{% endif %}">
+        {{ form_label(form, label|default(null), { 'attr': { 'class': 'control-label' }}) }}
+        {{ form_widget(form, { 'attr': {'class': 'input-xlarge'} }) }}
+        {{ form_errors(form) }}
+    </div>
+{% endspaceless %}
+{% endblock field_row %}
