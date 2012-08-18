@@ -80,7 +80,7 @@ sonata_block:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Tworzenieweb\UserBundle\Entity\User
+    user_class:     Tworzenieweb\UserBundle\Entity\User
     
     
 knp_menu:
@@ -189,3 +189,6 @@ jms_serializer:
 #            another-name:
 #                namespace_prefix: "My\\BarBundle"
 #                path: "@MyBarBundle/Resources/config/serializer"
+
+
+
