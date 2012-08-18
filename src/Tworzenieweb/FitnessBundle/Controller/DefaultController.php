@@ -18,7 +18,12 @@ class DefaultController extends Controller
     public function indexAction()
     {
         
-        return array();
+        $repository = $this->getDoctrine()->getRepository('Tworzenieweb\FitnessBundle\Entity\Page');
+        
+        return array(
+            'page' => $repository->findOneBy(array(
+            'slug' => 'homepage'))
+                );
         
     }
     

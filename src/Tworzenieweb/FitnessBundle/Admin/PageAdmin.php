@@ -42,6 +42,7 @@ class PageAdmin extends Admin
                         'data-theme' => 'advanced' // simple, advanced, bbcode
                     )
                 ))
+                ->add('visible', 'checkbox', array('required'  => false,))
                 ->end()
         ;
     }

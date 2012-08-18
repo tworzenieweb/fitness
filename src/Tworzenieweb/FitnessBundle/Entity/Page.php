@@ -41,6 +41,10 @@ class Page
      */
     private $position;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $visible = true;
     
     public function getId()
     {
@@ -116,5 +120,27 @@ class Page
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Set visible
+     *
+     * @param boolean $visible
+     * @return Page
+     */
+    public function setVisible($visible)
+    {
+        $this->visible = $visible;
+        return $this;
+    }
+
+    /**
+     * Get visible
+     *
+     * @return boolean 
+     */
+    public function getVisible()
+    {
+        return $this->visible;
     }
 }

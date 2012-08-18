@@ -25,7 +25,11 @@ class Builder extends ContainerAware
         $qb = $em->createQueryBuilder();
         $qb->add('select', 'a.title, a.slug')
         ->add('from', 'Tworzenieweb\FitnessBundle\Entity\Page a')
-        ->add('orderBy', 'a.position ASC');
+        ->add('where', 'a.visible = :visible')
+        ->add('orderBy', 'a.position ASC')
+        ->setParameter('visible', true);
+        
+        
         
         $rs = $qb->getQuery()->getArrayResult();
         

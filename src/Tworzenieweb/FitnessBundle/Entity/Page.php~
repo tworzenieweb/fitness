@@ -41,6 +41,10 @@ class Page
      */
     private $position;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $visible = true;
     
     public function getId()
     {
