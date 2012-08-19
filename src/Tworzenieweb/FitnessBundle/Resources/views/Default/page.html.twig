@@ -1,5 +1,10 @@
 {% extends "TworzeniewebFitnessBundle::layout.html.twig" %}
 
+{% block head_title %}
+{{ page.title }} -
+{{ parent() }}
+{% endblock %}
+
 {% block content %}
 <h3>{{ page.title }}</h3>
 
