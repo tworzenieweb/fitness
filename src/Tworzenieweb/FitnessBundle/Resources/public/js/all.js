@@ -32,7 +32,7 @@
            template += '<a href="' + Routing.generate('news_show', {'slug': value.slug}) 
                + '" class="tiny radius alert button">Czytaj więcej...</a>';
            
-           template = '<div class="' + i == 0 ? 'show' : 'hide' + '">' + template + "</div>";
+           template = '<div class="' + (i == 0 ? 'show' : 'hide') + '">' + template + "</div>";
            
            news.append(template);
            i++;
