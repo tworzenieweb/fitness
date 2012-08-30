@@ -20,6 +20,10 @@ body{
     
 }
 
+table.cute td, table.cute th {
+    border: 1px dotted #bbb;
+}
+
 .section3 h3 {
     font-size: 20px;
     color: #666;
