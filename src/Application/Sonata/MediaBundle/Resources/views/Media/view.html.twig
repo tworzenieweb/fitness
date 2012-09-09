@@ -1,0 +1,27 @@
+{% extends "TworzeniewebFitnessBundle::layout.html.twig" %}
+
+
+{% block head_title %}
+Galeria {{ media.name }} -
+{{ parent() }}
+{% endblock %}
+
+{% block content %}
+<h3><a href="{{ path('sonata_media_gallery_index') }}">Galeria</a> - {{ media.name }}</h3>
+
+<p>Powiązane galerie:
+    {% for galleryHasMedia in media.GalleryHasMedias %}
+            <a class="sonata-media-gallery-media-item-link" href="{{ url('sonata_media_gallery_view', {'id': galleryHasMedia.gallery.id }) }}">
+                {{ galleryHasMedia.gallery.name}}
+            </a>
+
+    {% endfor %}
+
+</p>
+
+<div class="{% if media.providerName == 'sonata.media.provider.youtube' %}flex-video widescreen{% endif %}">
+    {% media media, format %}
+</div>
+
+
+{% endblock content %}

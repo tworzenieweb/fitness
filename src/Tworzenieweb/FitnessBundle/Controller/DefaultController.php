@@ -28,6 +28,15 @@ class DefaultController extends Controller
     }
     
     /**
+     * @route("/galeria", name="galeria") 
+     * @template
+     */
+    public function galeriaAction(Request $request)
+    {
+        
+    }
+    
+    /**
      * @route("/contact", name="contact") 
      * @template
      */

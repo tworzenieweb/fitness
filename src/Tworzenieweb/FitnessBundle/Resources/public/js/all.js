@@ -14,6 +14,8 @@
         
     });
     
+    $('a.colorbox').colorbox({'rel': 'photos'});
+    
     
     var news = $('.news');
     

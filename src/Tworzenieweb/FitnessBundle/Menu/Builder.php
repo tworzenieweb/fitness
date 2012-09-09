@@ -56,6 +56,8 @@ class Builder extends ContainerAware
 //        $menu->addChild('Cennik', 
 //                array('route' => 'pages', 'routeParameters' => array('page' => 'cennik'),
 //                    'attributes' => array('class' => 'two columns')));
+        $menu->addChild('Galeria', 
+                array('route' => 'sonata_media_gallery_index', 'attributes' => array('class' => 'two columns')));
         $menu->addChild('Kontakt', 
                 array('route' => 'contact', 'attributes' => array('class' => 'two columns')));
         

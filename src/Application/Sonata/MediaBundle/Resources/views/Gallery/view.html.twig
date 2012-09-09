@@ -1,0 +1,31 @@
+{% extends "TworzeniewebFitnessBundle::layout.html.twig" %}
+
+{% block head_title %}
+Galeria {{ gallery.name }} -
+{{ parent() }}
+{% endblock %}
+
+{% block content %}
+<h3><a href="{{ path('sonata_media_gallery_index') }}">Galeria</a> - {{ gallery.name }}</h3>
+
+<div class="sonata-media-gallery-media-list">
+    {% for galleryHasMedia in gallery.GalleryHasMedias %}
+        {% set media = galleryHasMedia.Media %}
+        <div class="three columns {% if gallery.GalleryHasMedias | length == loop.index0 %}end{% endif %}">
+        <div class="panel">
+            <div class="nine columns centered">
+                <a href="{% path galleryHasMedia.media, 'very_big' %}" class="colorbox">{% thumbnail galleryHasMedia.media, 'small' %}</a>
+
+                <div class="row top-5">
+                        <a class="sonata-media-gallery-media-item-link label top-5" href="{{ url('sonata_media_view', {'id': galleryHasMedia.media.id }) }}">
+                        {{ galleryHasMedia.media.name }}
+                        </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+

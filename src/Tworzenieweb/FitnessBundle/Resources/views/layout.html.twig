@@ -20,6 +20,7 @@
                 'bundles/tworzeniewebfitness/css/foundation.css'
                 'bundles/tworzeniewebfitness/css/boilerplate.css'
                 'bundles/tworzeniewebfitness/css/app.css' 
+                'bundles/tworzeniewebfitness/css/colorbox.css' 
                 output='css/total.css' filter='cssrewrite'
                 %}
                 <link rel="stylesheet"  href="{{ asset_url }}" media="screen" >
@@ -203,7 +204,6 @@
             <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
             {% javascripts
                 'bundles/tworzeniewebfitness/js/jquery.min.js'
-                'bundles/tworzeniewebfitness/js/all.js'
                 'bundles/tworzeniewebfitness/js/app.js'
                 'bundles/tworzeniewebfitness/js/jquery.placeholder.min.js'
                 'bundles/tworzeniewebfitness/js/jquery.customforms.js'
@@ -211,6 +211,8 @@
                 'bundles/tworzeniewebfitness/js/jquery.tooltips.js'
                 'bundles/tworzeniewebfitness/js/jquery.orbit-1.4.0.js'
                 'bundles/tworzeniewebfitness/js/modernizr.foundation.js'
+                'bundles/tworzeniewebfitness/js/colorbox/jquery.colorbox-min.js'
+                'bundles/tworzeniewebfitness/js/all.js'
                 output='js/total.js'
                 %}
                 <script src="{{asset_url}}"></script>

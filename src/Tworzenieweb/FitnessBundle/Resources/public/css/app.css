@@ -347,3 +347,10 @@ div.extended {
 .asterix {
     color: red;
 }
+
+.row .top-5 {
+    margin-top: 5px;
+}
+.row .top-10 {
+    margin-top: 10px;
+}

@@ -1,0 +1,22 @@
+{% extends "TworzeniewebFitnessBundle::layout.html.twig" %}
+
+{% block head_title %}
+Galeria {{ gallery.name }} -
+{{ parent() }}
+{% endblock %}
+
+{% block content %}
+<h3>Galeria</h3>
+
+<div class="sonata-media-gallery-media-list">
+    {% for galleryHasMedia in gallery.GalleryHasMedias %}
+        <div class="sonata-media-gallery-media-item">
+            <a class="sonata-media-gallery-media-item-link" href="{{ url('sonata_media_view', {'id': galleryHasMedia.media.id }) }}">
+                {% thumbnail galleryHasMedia.media, gallery.defaultFormat %}
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
